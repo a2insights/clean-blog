@@ -1,0 +1,24 @@
+{
+    "name": "atiladanvi/clean-hasblog",
+    "description": "template blog to hasblog",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Atiladanvi",
+            "email": "atila.danvi@outlook.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "CleanHasBlog\\": "src/"
+        }
+    },
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CleanHasBlog\\CleanHasBlogServiceProvider"
+            ]
+        }
+    }
+}
