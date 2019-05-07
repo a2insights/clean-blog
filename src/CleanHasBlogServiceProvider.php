@@ -23,6 +23,8 @@ class CleanHasBlogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/resources/views' => resource_path('views/vendor/clean'),
         ], 'clean/views');
+
+        $this->loadViewsFrom(__DIR__.'/resources/views', 'clean');
     }
 
     /**
