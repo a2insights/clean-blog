@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.png') }}">
     <meta name="description" content="{{ $blog->description }}">
-    <meta name="author" content="{{ $blog->owner->name }}">
+    <meta name="author" content="{{ $blog->user->name }}">
     <title>{{ $blog->name }}</title>
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('vendor/clean/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -57,7 +57,7 @@
             @foreach($posts as $post)
                 <div class="post-preview">
                     <h2 class="post-title">
-                        {{$post->name}}
+                        {{$post->title}}
                     </h2>
                     <p class="post-subtitle ">
                         {{$post->content}}
