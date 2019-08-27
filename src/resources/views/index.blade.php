@@ -30,6 +30,38 @@
                 <li class="nav-item">
                     <a class="nav-link card-link text-secondary" href="/">HasBlog</a>
                 </li>
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link card-link text-secondary" href="/dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();
+                               ">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
             </ul>
         </div>
     </div>
@@ -62,9 +94,27 @@
                     <p class="post-subtitle ">
                         {{$post->content}}
                     </p>
-                    <p class="post-meta">Posted at
+                    <p class="post-meta mb-1">Posted at
                         {{$post->created_at}}
                     </p>
+                    @auth
+                        <form method="POST" id="destroyPost-{{$post->id}}" action="/dashboard/post/{{$post->id}}">
+                            <a class="btn px-0 btn-link text-primary" href="/dashboard/post/{{$post->id}}/edit">edit</a>
+                            {{ method_field('DELETE') }}
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <button
+                                type="submit"
+                                onclick="
+                                    event.preventDefault();
+                                    let destroy = confirm('Really want to delete the post');
+                                    if(destroy){ document.getElementById('destroyPost-{{$post->id}}').submit() }
+                                "
+                                class="btn btn-link ml-2 px-0 text-danger"
+                            >
+                                delete
+                            </button>
+                        </form>
+                    @endauth
                 </div>
                 <hr>
             @endforeach
@@ -74,13 +124,18 @@
                 <p class="text-sm-center text-muted pt-2">
                     Page: {{ $posts->currentPage() }} | Pages: {{ $posts->lastPage() }}
                 </p>
+                <div class="row  mb-5">
+                    <div class="col text-sm-center text-muted">
+                        <small>Showing {{ $posts->currentPage() }} of {{ $posts->lastPage() }} pages and a total of {{ $posts->total() }} posts</small>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <hr class="mb-0">
 <!-- Footer -->
-<footer class="py-2">
+<footer class="py-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
