@@ -97,7 +97,7 @@
                     <p class="post-meta mb-1">Posted at
                         {{$post->created_at}}
                     </p>
-                    @auth
+                    @can('update' , $post)
                         <form method="POST" id="destroyPost-{{$post->id}}" action="/dashboard/post/{{$post->id}}">
                             <a class="btn px-0 btn-link text-primary" href="/dashboard/post/{{$post->id}}/edit">edit</a>
                             {{ method_field('DELETE') }}
@@ -118,18 +118,20 @@
                 </div>
                 <hr>
             @endforeach
-            <div class="clearfix">
-                <a tabindex="-1" class="btn btn-primary {{$posts->previousPageUrl() ? '' : 'disabled'}} float-left" href="{{$posts->previousPageUrl()}}">News Posts &rarr;</a>
-                <a class="btn btn-primary {{$posts->nextPageUrl() ? '' : 'disabled'}} float-right" href="{{$posts->nextPageUrl()}}">Older Posts &rarr;</a>
-                <p class="text-sm-center text-muted pt-2">
-                    Page: {{ $posts->currentPage() }} | Pages: {{ $posts->lastPage() }}
-                </p>
-                <div class="row  mb-5">
-                    <div class="col text-sm-center text-muted">
-                        <small>Showing {{ $posts->currentPage() }} of {{ $posts->lastPage() }} pages and a total of {{ $posts->total() }} posts</small>
+            @if($posts->currentPage() !== $posts->lastPage() || $posts->lastPage() !== 1)
+                <div class="clearfix">
+                    <a tabindex="-1" class="btn btn-primary {{$posts->previousPageUrl() ? '' : 'disabled'}} float-left" href="{{$posts->previousPageUrl()}}">News Posts &rarr;</a>
+                    <a class="btn btn-primary {{$posts->nextPageUrl() ? '' : 'disabled'}} float-right" href="{{$posts->nextPageUrl()}}">Older Posts &rarr;</a>
+                    <p class="text-sm-center text-muted pt-2">
+                        Page: {{ $posts->currentPage() }} | Pages: {{ $posts->lastPage() }}
+                    </p>
+                    <div class="row  mb-5">
+                        <div class="col text-sm-center text-muted">
+                            <small>Showing {{ $posts->currentPage() }} of {{ $posts->lastPage() }} pages and a total of {{ $posts->total() }} posts</small>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endif
         </div>
     </div>
 </div>
