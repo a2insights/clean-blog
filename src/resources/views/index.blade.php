@@ -92,7 +92,7 @@
                         {{$post->title}}
                     </h2>
                     <p class="post-subtitle ">
-                        {{$post->content}}
+                       {!! $post->content !!}
                     </p>
                     <p class="post-meta mb-1">Posted at
                         {{$post->created_at}}
