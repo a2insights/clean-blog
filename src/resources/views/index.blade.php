@@ -88,9 +88,9 @@
         <div class="col-lg-8 col-md-10 mx-auto">
             @foreach($posts as $post)
                 <div class="post-preview">
-                    <h2 class="post-title">
+                    <h1 class="post-title">
                         {{$post->title}}
-                    </h2>
+                    </h1>
                     <p class="post-subtitle ">
                        {!! $post->content !!}
                     </p>
