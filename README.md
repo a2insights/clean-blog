@@ -7,30 +7,37 @@
 > ### Template for the blog homepage to use whit HasBlog
 PRs and issues welcome!
 
-----------
-
-# Getting started
-
 ## Installation
- The clean is a default theme of HasBlog system but if you want use out of the cms box feel free.
 
-Install the theme
+You can install the package via composer:
 
-    composer require atiladanvi/clean-hasblog
+```bash
+composer require atiladanvi/clean-hasblog
+```
 
-Publish vendor files
+## Usage
 
-    php artisan vendor:publish --provider="CleanHasBlog\CleanHasBlogServiceProvider"
-    
+``` php
+php artisan vendor:publish --provider="Atiladanvi\CleanHasblog\CleanHasblogServiceProvider"
+```
 
-### [All Rigth Now]( https://www.youtube.com/watch?v=rl51s5Osutg) :notes: :notes:
+### Changelog
 
-## Dependencies
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
-- [startbootstrap-clean-blog](https://github.com/BlackrockDigital/startbootstrap-clean-blog) - Clean blog is a carefully styled Bootstrap blog theme that is perfect for personal or company blogs. This theme features four HTML pages including a blog index, an about page, a sample post, and a contact page.
+## Contributing
 
-### Features
-    * Modern design with a subtle splash of color (which is easy to customize, especially with LESS!)
-    * Distraction free blog text optimized for legibility with a menu bar interface that conveniently appears when you scroll up!
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-#### Is something missing ? submit a PR please ;)
+### Security
+
+If you discover any security related issues, please email atila.danvi@outlook.com instead of using the issue tracker.
+
+## Credits
+
+- [Atila SIlva](https://github.com/atiladanvi)
+- [All Contributors](../../contributors)
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.

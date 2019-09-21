@@ -1,23 +1,36 @@
 {
     "name": "atiladanvi/clean-hasblog",
-    "description": "template blog to hasblog",
+    "description": "This is a part of hasblog system",
+    "keywords": [
+        "atiladanvi",
+        "clean-hasblog"
+    ],
+    "homepage": "https://github.com/atiladanvi/clean-hasblog",
     "license": "MIT",
+    "type": "library",
     "authors": [
         {
-            "name": "Atiladanvi",
-            "email": "atila.danvi@outlook.com"
+            "name": "Atila SIlva",
+            "email": "atila.danvi@outlook.com",
+            "role": "Developer"
         }
     ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "5.8.*"
+    },
     "autoload": {
         "psr-4": {
-            "CleanHasBlog\\": "src/"
+            "Atiladanvi\\CleanHasblog\\": "src"
         }
     },
-    "require": {},
+    "config": {
+        "sort-packages": true
+    },
     "extra": {
         "laravel": {
             "providers": [
-                "CleanHasBlog\\CleanHasBlogServiceProvider"
+                "Atiladanvi\\CleanHasblog\\CleanHasblogServiceProvider"
             ]
         }
     }
