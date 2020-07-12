@@ -1,9 +1,9 @@
 {
-    "name": "atiladanvi/clean-hasblog",
-    "description": "This is a part of hasblog system",
+    "name": "a2ensite/clean-blog",
+    "description": "This is a part of octo system",
     "keywords": [
-        "atiladanvi",
-        "clean-hasblog"
+        "laravel",
+        "clean-blog"
     ],
     "homepage": "https://github.com/atiladanvi/clean-hasblog",
     "license": "MIT",
