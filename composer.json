@@ -5,12 +5,12 @@
         "laravel",
         "clean-blog"
     ],
-    "homepage": "https://github.com/atiladanvi/clean-hasblog",
+    "homepage": "https://github.com/a2insights/clean-blog",
     "license": "MIT",
     "type": "library",
     "authors": [
         {
-            "name": "Atila SIlva",
+            "name": "Atila Silva",
             "email": "atila.danvi@outlook.com",
             "role": "Developer"
         }
@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Atiladanvi\\CleanHasblog\\": "src"
+            "Octo\\CleanBlog\\": "src"
         }
     },
     "config": {
@@ -30,7 +30,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Atiladanvi\\CleanHasblog\\CleanHasblogServiceProvider"
+                "Octo\\CleanBlog\\CleanBlogServiceProvider"
             ]
         }
     }
